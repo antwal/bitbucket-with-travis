@@ -14,14 +14,16 @@ before_install:
   - echo -e "machine bitbucket.org\n  login $BITBUCKET_USER_NAME\n  password $BITBUCKET_USER_PASSWORD" >~/.netrc
   - chmod a+x ./submodules.sh
   - ./submodules.sh
-  - "ls -al"
-  - "pwd"
-  - "ls -al ~/"
+  # - "ls -al"
+  # - "pwd"
+  # - "ls -al ~/"
 
 install:
+    - "cd test-travis-ci"
     - python setup.py install
 
 script:
+    - "cd test-travis-ci"
     - python -m pytest -v
 
 stages:
