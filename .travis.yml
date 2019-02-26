@@ -1,6 +1,28 @@
+language: python
+
 git:
   submodules:
     false
+
 before_install:
   - echo -e "machine bitbucket.org\n  login $BITBUCKET_USER_NAME\n  password $BITBUCKET_USER_PASSWORD" >~/.netrc
   - git submodule update --init --recursive
+
+install:
+    - python setup.py install
+
+script:
+    - python -m pytest -v
+
+stages:
+    - name: static analysis
+    - name: test
+
+jobs:
+  fast_finish: true
+  include:
+    - stage: static analysis
+      python: "2.7"
+
+    - stage: test
+      python: "3.5"
