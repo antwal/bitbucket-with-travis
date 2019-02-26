@@ -11,7 +11,7 @@ before_install:
   # - ./submodules.sh
 
 install:
-    - cd test-travis-ci
+    - "ls -al"
     - python setup.py install
 
 script:
