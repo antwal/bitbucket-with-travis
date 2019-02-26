@@ -1,0 +1,3 @@
+[submodule "test-travis-ci"]
+	path = test-travis-ci
+	url = https://bitbucket.org/antwal/test-travis-ci.git
